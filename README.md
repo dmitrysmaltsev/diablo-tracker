@@ -12,13 +12,27 @@ It deliberately leaves out skill trees and paragon boards (you set those up once
 
 ## Run locally
 
-```sh
-python -m http.server 8000
-# then open http://localhost:8000
+Easiest (Windows PowerShell):
+
+```powershell
+.\serve.ps1            # http://localhost:8000  (Ctrl+C to stop)
+.\serve.ps1 -Open      # also opens the browser
+.\serve.ps1 -Port 9000 # custom port
 ```
 
+`serve.ps1` uses Python if present, otherwise Node's `serve`. Equivalents:
+
+```sh
+python -m http.server 8000      # Python
+npx --yes serve -l 8000         # Node
+npm start                        # Node, after `npm install`
+```
+
+Then open http://localhost:8000.
+
 (A static server is required — opening `index.html` via `file://` blocks `fetch()` of the
-JSON files.)
+JSON files. After editing a build, refresh; if a change doesn't show, hard-refresh with
+`Ctrl+Shift+R` to bypass the service-worker cache.)
 
 ## Adding / editing a build
 

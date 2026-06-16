@@ -1,0 +1,13 @@
+{
+  "name": "diablo-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile-first per-slot gear stat priorities for Diablo 4 builds.",
+  "scripts": {
+    "start": "serve -l 8000",
+    "serve": "serve -l 8000"
+  },
+  "devDependencies": {
+    "serve": "^14"
+  }
+}
