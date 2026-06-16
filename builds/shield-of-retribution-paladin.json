@@ -1,0 +1,121 @@
+{
+  "id": "shield-of-retribution-paladin",
+  "name": "Shield of Retribution Paladin",
+  "class": "Paladin",
+  "source": "https://maxroll.gg/d4/build-guides/shield-of-retribution-paladin-guide",
+  "patch": "",
+  "updated": "2026-06-16",
+  "notes": "Item assignments per slot are taken from the guide. Affix priority, tempering, masterwork and gem fields marked \"verify\": true still need to be filled in from the maxroll planner embed.",
+  "slots": [
+    {
+      "slot": "Helm",
+      "item": "Godslayer Crown",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Chest",
+      "item": "Mantle of the Grey",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Gloves",
+      "item": "Ceh",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": ["Aspect of Dominance (instantly cap Resolve)", "Aspect of the Umbral (Faith generation)"],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Pants",
+      "item": "",
+      "type": "legendary",
+      "aspect": "Aspect of Glynn's Anvil",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Boots",
+      "item": "",
+      "type": "rare",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Amulet",
+      "item": "",
+      "type": "legendary",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Ring 1",
+      "item": "Ring of Starless Skies",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Ring 2",
+      "item": "Heir of Perdition",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Main Hand",
+      "item": "Gar",
+      "type": "unique",
+      "aspect": "",
+      "affixes": ["Critical Strike Chance"],
+      "tempering": [],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    },
+    {
+      "slot": "Off-Hand / Shield",
+      "item": "Ward of the White Dove",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [],
+      "tempering": ["Blessed Shield multiplier + lower Faith cost"],
+      "masterwork": [],
+      "gem": "",
+      "verify": true
+    }
+  ]
+}

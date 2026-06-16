@@ -1,0 +1,178 @@
+:root {
+  --bg: #140d09;
+  --bg-card: #211610;
+  --bg-card-hi: #2c1e15;
+  --border: #3a281c;
+  --text: #efe3d4;
+  --text-dim: #b09a85;
+  --accent: #c6953f;       /* gold */
+  --accent-2: #d8623a;     /* ember */
+  --unique: #d18b2a;       /* unique item color */
+  --legendary: #b06bd6;    /* aspect/legendary */
+  --rare: #e9d36b;         /* rare */
+  --warn: #d8623a;
+  --radius: 14px;
+  --tap: 48px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* Top bar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #221610, #1a110b);
+  border-bottom: 1px solid var(--border);
+}
+.title {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.build-picker {
+  flex: 1;
+  min-width: 0;
+  height: var(--tap);
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 12px;
+  font-size: 1rem;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 16px 28px;
+}
+
+.build-meta {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.build-meta .cls { color: var(--accent); font-weight: 600; }
+
+.filter {
+  width: 100%;
+  height: var(--tap);
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.filter::placeholder { color: var(--text-dim); }
+
+.slots { display: flex; flex-direction: column; gap: 10px; }
+
+/* Slot card (collapsed = summary, expanded = details) */
+.slot {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.slot[open] { background: var(--bg-card-hi); }
+
+.slot summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--tap);
+  padding: 12px 14px;
+}
+.slot summary::-webkit-details-marker { display: none; }
+
+.slot-name { font-weight: 700; font-size: 1.05rem; min-width: 92px; }
+.slot-item { flex: 1; color: var(--text-dim); font-size: 0.92rem; }
+.slot-item .item-name { color: var(--text); font-weight: 600; }
+.type-unique .item-name { color: var(--unique); }
+.type-legendary .aspect-name { color: var(--legendary); }
+.type-rare .slot-item { color: var(--rare); }
+
+.chev { color: var(--text-dim); transition: transform .15s ease; }
+.slot[open] .chev { transform: rotate(90deg); }
+
+.warn-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--warn); flex: none;
+  box-shadow: 0 0 6px var(--warn);
+}
+
+.detail { padding: 4px 14px 16px; }
+.field { margin-top: 12px; }
+.field h3 {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+.field.aspect h3 { color: var(--legendary); }
+
+ol.affixes { margin: 0; padding-left: 1.3em; }
+ol.affixes li { margin: 3px 0; }
+ol.affixes li:first-child { color: var(--text); font-weight: 600; }
+
+.taglist { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  background: #190f09;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 0.86rem;
+  color: var(--text);
+}
+.gem-tag { border-color: var(--accent); color: var(--accent); }
+
+.empty { color: var(--text-dim); font-style: italic; font-size: 0.88rem; }
+
+.verify-banner {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--warn);
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+}
+
+.status { color: var(--text-dim); text-align: center; margin-top: 24px; }
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+.footer a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+
+.hidden { display: none !important; }

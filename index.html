@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a0f0a" />
+  <title>D4 Gear Tracker</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="title">D4 Gear</h1>
+    <select id="buildPicker" class="build-picker" aria-label="Select build"></select>
+  </header>
+
+  <main id="main" class="main">
+    <div class="build-meta" id="buildMeta"></div>
+    <input id="filter" class="filter" type="search" placeholder="Filter slots…" aria-label="Filter slots" autocomplete="off" />
+    <section id="slots" class="slots" aria-live="polite"></section>
+    <p id="status" class="status"></p>
+  </main>
+
+  <footer class="footer">
+    <a id="sourceLink" href="#" target="_blank" rel="noopener">View full guide on maxroll.gg ↗</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
