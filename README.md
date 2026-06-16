@@ -61,9 +61,11 @@ JSON files. After editing a build, refresh; if a change doesn't show, hard-refre
 ```
 
 > **Note:** maxroll renders the detailed affix priorities inside an embedded planner widget,
-> not as page text, so this data is curated by hand rather than scraped. The seeded Paladin
-> build has item assignments filled in; affix/tempering/masterwork/gem fields are marked
-> `"verify": true` and need to be completed from the guide's planner.
+> not as page text. The seeded Paladin build was extracted directly from that planner's data
+> (profile `lyqx703g`, **Endgame** profile) and game-data dictionary, so item names, affix
+> priority, tempering, masterwork, gems and runes are real. For uniques the first affix is the
+> Greater Affix / masterwork priority; rare slots list the affix priority to roll for. Set
+> `"verify": true` on any slot you want to flag for re-checking.
 
 ## Deploy to GitHub Pages
 

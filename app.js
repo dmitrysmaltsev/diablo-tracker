@@ -170,6 +170,7 @@ function renderDetail(slot) {
   html += listField("Tempering", slot.tempering);
   html += listField("Masterwork", slot.masterwork);
   if (slot.gem) html += listField("Gem", [slot.gem], "gem-tag");
+  if (slot.runes && slot.runes.length) html += listField("Runes", slot.runes, "gem-tag");
 
   if (slot.verify) {
     html += `<p class="verify-banner">⚠ Verify this slot against the maxroll guide.</p>`;
