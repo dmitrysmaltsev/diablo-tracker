@@ -6,6 +6,8 @@ check constantly while playing: *"I just got a new helm — which stats matter?"
 
 It deliberately leaves out skill trees and paragon boards (you set those up once).
 
+**Live:** https://mdima.dev/diablo-tracker/
+
 - **Static site** — plain HTML/CSS/JS, no build step.
 - **Installable PWA** — add to your phone's home screen, works offline.
 - **Multiple builds** — pick from a dropdown; each build is one small JSON file.
