@@ -1,0 +1,15 @@
+{
+  "_comment": "Source-of-truth config for generating builds/*.json. Add a build here, then run: python tools/gen_build.py (optionally <build-id> to regenerate just one). Inputs are pulled from the maxroll planner + game-data dictionary; nothing in builds/ should be hand-edited.",
+  "builds": [
+    {
+      "id": "shield-of-retribution-paladin",
+      "name": "Shield of Retribution Paladin",
+      "class": "Paladin",
+      "planner_id": "lyqx703g",
+      "profile": "Endgame",
+      "source": "https://maxroll.gg/d4/build-guides/shield-of-retribution-paladin-guide",
+      "patch": "Season 13",
+      "notes": "Auto-extracted from the maxroll planner (Endgame profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for."
+    }
+  ]
+}

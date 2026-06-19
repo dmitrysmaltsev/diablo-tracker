@@ -110,7 +110,8 @@ function renderSlot(slot, openSlot) {
   const det = document.createElement("details");
   det.className = "slot type-" + (slot.type || "rare");
   det.dataset.name = (slot.slot || "").toLowerCase();
-  det.dataset.search = [slot.slot, slot.item, slot.aspect, ...(slot.affixes || [])]
+  det.dataset.search = [slot.slot, slot.item, slot.aspect, slot.note,
+    ...(slot.affixes || []), ...(slot.bonuses || [])]
     .join(" ").toLowerCase();
   if (openSlot && slot.slot === openSlot) det.open = true;
 
@@ -159,16 +160,24 @@ function renderDetail(slot) {
     html += `<div class="field"><h3>Item</h3><div class="taglist"><span class="tag">${escapeHtml(slot.item)}</span></div></div>`;
   }
 
+  if (slot.note) {
+    html += `<p class="note">${escapeHtml(slot.note)}</p>`;
+  }
+
+  if (slot.bonuses && slot.bonuses.length) {
+    const lis = slot.bonuses.map((b) => `<li>${escapeHtml(b)}</li>`).join("");
+    html += `<div class="field"><h3>Set bonuses</h3><ul class="bonuses">${lis}</ul></div>`;
+  }
+
   // Affix priority (ordered)
   if (slot.affixes && slot.affixes.length) {
     const lis = slot.affixes.map((a) => `<li>${escapeHtml(a)}</li>`).join("");
     html += `<div class="field"><h3>Affix priority</h3><ol class="affixes">${lis}</ol></div>`;
-  } else {
+  } else if (!slot.note && !(slot.bonuses && slot.bonuses.length)) {
     html += `<div class="field"><h3>Affix priority</h3><p class="empty">Not filled in yet — add from the planner.</p></div>`;
   }
 
   html += listField("Tempering", slot.tempering);
-  html += listField("Masterwork", slot.masterwork);
   if (slot.gem) html += listField("Gem", [slot.gem], "gem-tag");
   if (slot.runes && slot.runes.length) html += listField("Runes", slot.runes, "gem-tag");
 

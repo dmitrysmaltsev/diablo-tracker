@@ -4,10 +4,10 @@
   "class": "Paladin",
   "source": "https://maxroll.gg/d4/build-guides/shield-of-retribution-paladin-guide",
   "planner": "https://maxroll.gg/d4/planner/lyqx703g",
-  "patch": "",
-  "updated": "2026-06-16",
+  "patch": "Season 13",
+  "updated": "2026-06-20",
   "profile": "Endgame",
-  "notes": "Auto-extracted from the maxroll planner (Endgame profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots (Gloves, Pants, Boots, Rings, Amulet) show the affix priority to roll for.",
+  "notes": "Auto-extracted from the maxroll planner (Endgame profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for.",
   "slots": [
     {
       "slot": "Helm",
@@ -18,14 +18,12 @@
         "Critical Strike Chance",
         "Lucky Hit Chance",
         "Movement Speed",
-        "to Core Skills",
+        "Ranks to Core Skills",
+        "Unique Effect",
         "Physical Damage"
       ],
       "tempering": [
-        "Maximum Stacks"
-      ],
-      "masterwork": [
-        "Critical Strike Chance"
+        "Maximum Resolve Stacks"
       ],
       "gem": "",
       "verify": false,
@@ -41,16 +39,14 @@
       "aspect": "",
       "affixes": [
         "Thorns",
+        "Unique Effect",
         "Strength",
         "Maximum Life",
         "Life Regeneration",
         "Physical Damage"
       ],
       "tempering": [
-        "Maximum Stacks"
-      ],
-      "masterwork": [
-        "Thorns"
+        "Maximum Resolve Stacks"
       ],
       "gem": "",
       "verify": false,
@@ -62,22 +58,20 @@
     {
       "slot": "Gloves",
       "item": "Runic Gloves",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "Redirected Force",
       "affixes": [
         "Physical Damage Multiplier",
         "Critical Strike Damage Multiplier",
         "Strength",
+        "Life On Hit",
         "Critical Strike Chance",
         "Attack Speed",
         "Cooldown Reduction",
         "Physical Damage"
       ],
       "tempering": [
-        "Potency"
-      ],
-      "masterwork": [
-        "Physical Damage Multiplier"
+        "Defiance Aura Potency"
       ],
       "gem": "",
       "verify": false
@@ -85,8 +79,8 @@
     {
       "slot": "Pants",
       "item": "Runic Leggings",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "Glynn's Anvil",
       "affixes": [
         "Thorns",
         "Strength",
@@ -98,19 +92,16 @@
         "Physical Damage"
       ],
       "tempering": [
-        "Maximum Stacks"
+        "Maximum Resolve Stacks"
       ],
-      "masterwork": [
-        "Thorns"
-      ],
-      "gem": "Grand Ruby",
+      "gem": "2× Grand Ruby",
       "verify": false
     },
     {
       "slot": "Boots",
       "item": "Runic Cleats",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "Dominance",
       "affixes": [
         "Regeneration",
         "Strength",
@@ -124,17 +115,14 @@
       "tempering": [
         "Movement Speed"
       ],
-      "masterwork": [
-        "Regeneration"
-      ],
       "gem": "",
       "verify": false
     },
     {
       "slot": "Amulet",
       "item": "Ocelot's Eye",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "Lapa's Scripture",
       "affixes": [
         "Vulnerable Damage Multiplier",
         "Critical Strike Damage Multiplier",
@@ -147,17 +135,14 @@
       "tempering": [
         "Cooldown Reduction"
       ],
-      "masterwork": [
-        "Vulnerable Damage Multiplier"
-      ],
       "gem": "Grand Ruby",
       "verify": false
     },
     {
       "slot": "Ring 1",
       "item": "Soulwatch Hoop",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "the Umbral",
       "affixes": [
         "Critical Strike Damage Multiplier",
         "Strength",
@@ -171,17 +156,14 @@
       "tempering": [
         "Resource Cost Reduction"
       ],
-      "masterwork": [
-        "Critical Strike Damage Multiplier"
-      ],
       "gem": "Grand Topaz",
       "verify": false
     },
     {
       "slot": "Ring 2",
       "item": "Soulwatch Hoop",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "the Juggernaut's Covenant",
       "affixes": [
         "Attack Speed",
         "Vulnerable Damage Multiplier",
@@ -195,30 +177,25 @@
       "tempering": [
         "Lucky Hit: Up to a 15% Chance to Restore Primary Resource"
       ],
-      "masterwork": [
-        "Attack Speed"
-      ],
       "gem": "Grand Emerald",
       "verify": false
     },
     {
       "slot": "Weapon",
       "item": "Spiked Flail",
-      "type": "rare",
-      "aspect": "",
+      "type": "legendary",
+      "aspect": "Chastisement",
       "affixes": [
         "Critical Strike Damage Multiplier",
         "Strength",
         "All Damage Multiplier",
         "Maximum Life",
         "Physical Damage Multiplier",
+        "Life On Hit",
         "Physical Damage"
       ],
       "tempering": [
         "Critical Strike Chance"
-      ],
-      "masterwork": [
-        "Critical Strike Damage Multiplier"
       ],
       "gem": "Grand Skull",
       "verify": false
@@ -233,15 +210,34 @@
         "Thorns",
         "Strength",
         "Critical Strike Chance",
+        "Unique Effect",
         "Physical Damage"
       ],
       "tempering": [
         "Critical Strike Chance"
       ],
-      "masterwork": [
-        "Damage Reduction"
-      ],
       "gem": "Grand Ruby",
+      "verify": false
+    },
+    {
+      "slot": "Charms",
+      "item": "Cathan's Righteous Will (5pc)",
+      "type": "set",
+      "aspect": "",
+      "note": "5-piece charm set equipped in your Legendary Horadric Seal: Phoba of Righteous Will, Fer of Righteous Will, Mlor of Righteous Will, Linta of Righteous Will, and Berú of Righteous Will. Each charm gives +All Stats and one elemental Resistance.",
+      "bonuses": [
+        "(2) Enemies cower before you, becoming Feared and Immobilized for 0.5 seconds when they first see you or when you Block them.",
+        "(3) You reflect Stun and Knockback effects. Your Minimum Resolve is increased by 2 and Maximum Resolve is increased by 2 and you gain 10% Damage Reduction for each Minimum Resolve you have.",
+        "(5) When you try to Crowd Control a worthy enemy, one that can't be Crowd Controlled, you rise to the occasion gaining 500% increased damage for 10 seconds."
+      ],
+      "verify": false
+    },
+    {
+      "slot": "Unique Charm",
+      "item": "Godslayer Crown",
+      "type": "unique",
+      "aspect": "",
+      "note": "When you attempt to Incapacitate an enemy, you mark them and all surrounding enemies, pulling them in and dealing 40% increased damage to them.",
       "verify": false
     }
   ]

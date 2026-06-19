@@ -10,6 +10,7 @@
   --unique: #d18b2a;       /* unique item color */
   --legendary: #b06bd6;    /* aspect/legendary */
   --rare: #e9d36b;         /* rare */
+  --set: #4fae6d;          /* set item */
   --warn: #d8623a;
   --radius: 14px;
   --tap: 48px;
@@ -120,6 +121,7 @@ body {
 .type-unique .item-name { color: var(--unique); }
 .type-legendary .aspect-name { color: var(--legendary); }
 .type-rare .slot-item { color: var(--rare); }
+.type-set .item-name { color: var(--set); }
 
 .chev { color: var(--text-dim); transition: transform .15s ease; }
 .slot[open] .chev { transform: rotate(90deg); }
@@ -144,6 +146,16 @@ body {
 ol.affixes { margin: 0; padding-left: 1.3em; }
 ol.affixes li { margin: 3px 0; }
 ol.affixes li:first-child { color: var(--text); font-weight: 600; }
+
+ul.bonuses { margin: 0; padding-left: 1.3em; }
+ul.bonuses li { margin: 3px 0; color: var(--set); }
+
+.note {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
 
 .taglist { display: flex; flex-wrap: wrap; gap: 6px; }
 .tag {

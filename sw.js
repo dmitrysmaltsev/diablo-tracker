@@ -1,6 +1,6 @@
 // Simple offline-first service worker for the D4 Gear Tracker.
 // Bump CACHE when shipping changes so old assets get cleaned up.
-const CACHE = "d4gear-v1";
+const CACHE = "d4gear-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
