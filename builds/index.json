@@ -4,5 +4,11 @@
     "name": "Shield of Retribution Paladin",
     "class": "Paladin",
     "updated": "2026-06-20"
+  },
+  {
+    "id": "evade-counterswarm-spiritborn",
+    "name": "Evade Counterswarm Spiritborn",
+    "class": "Spiritborn",
+    "updated": "2026-06-20"
   }
 ]

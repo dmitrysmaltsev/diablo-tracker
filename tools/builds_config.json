@@ -10,6 +10,16 @@
       "source": "https://maxroll.gg/d4/build-guides/shield-of-retribution-paladin-guide",
       "patch": "Season 13",
       "notes": "Auto-extracted from the maxroll planner (Endgame profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for."
+    },
+    {
+      "id": "evade-counterswarm-spiritborn",
+      "name": "Evade Counterswarm Spiritborn",
+      "class": "Spiritborn",
+      "planner_id": "adb5f08s",
+      "profile": "Endgame 3.0.3",
+      "source": "https://maxroll.gg/d4/build-guides/evade-counterswarm-spiritborn-guide",
+      "patch": "Season 13",
+      "notes": "Auto-extracted from the maxroll planner (Endgame 3.0.3 profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for."
     }
   ]
 }

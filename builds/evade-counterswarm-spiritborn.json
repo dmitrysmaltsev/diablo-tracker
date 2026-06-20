@@ -1,0 +1,224 @@
+{
+  "id": "evade-counterswarm-spiritborn",
+  "name": "Evade Counterswarm Spiritborn",
+  "class": "Spiritborn",
+  "source": "https://maxroll.gg/d4/build-guides/evade-counterswarm-spiritborn-guide",
+  "planner": "https://maxroll.gg/d4/planner/adb5f08s",
+  "patch": "Season 13",
+  "updated": "2026-06-20",
+  "profile": "Endgame 3.0.3",
+  "notes": "Auto-extracted from the maxroll planner (Endgame 3.0.3 profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for.",
+  "slots": [
+    {
+      "slot": "Helm",
+      "item": "Harmony of Ebewaka",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [
+        "Dexterity",
+        "Maximum Life",
+        "Armor",
+        "Cooldown Reduction",
+        "Unique Effect",
+        "Poison Damage",
+        "Ranks to Defensive Skills"
+      ],
+      "tempering": [
+        "Maximum Resolve Stacks"
+      ],
+      "gem": "2× Grand Emerald",
+      "verify": false
+    },
+    {
+      "slot": "Chest",
+      "item": "Runic Mail",
+      "type": "legendary",
+      "aspect": "Glynn's Anvil",
+      "affixes": [
+        "Ranks to Counterattack",
+        "Dexterity",
+        "Maximum Life",
+        "Armor",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Maximum Resolve Stacks"
+      ],
+      "gem": "",
+      "verify": false,
+      "runes": [
+        "Yul",
+        "Kry"
+      ]
+    },
+    {
+      "slot": "Gloves",
+      "item": "Runic Gloves",
+      "type": "legendary",
+      "aspect": "Supremacy",
+      "affixes": [
+        "Damage Over Time Multiplier",
+        "Vulnerable Damage Multiplier",
+        "Dexterity",
+        "Maximum Life",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Damage Over Time"
+      ],
+      "gem": "",
+      "verify": false
+    },
+    {
+      "slot": "Pants",
+      "item": "Runic Leggings",
+      "type": "legendary",
+      "aspect": "Debilitating Toxins",
+      "affixes": [
+        "Dexterity",
+        "Maximum Life",
+        "Armor",
+        "Resistance to All Elements",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Maximum Resolve Stacks"
+      ],
+      "gem": "",
+      "verify": false,
+      "runes": [
+        "Cem",
+        "Tzic"
+      ]
+    },
+    {
+      "slot": "Boots",
+      "item": "Runic Cleats",
+      "type": "legendary",
+      "aspect": "Apprehension",
+      "affixes": [
+        "Dexterity",
+        "Maximum Life",
+        "Armor",
+        "Resistance to All Elements",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Movement Speed"
+      ],
+      "gem": "",
+      "verify": false
+    },
+    {
+      "slot": "Amulet",
+      "item": "Widow's Web",
+      "type": "legendary",
+      "aspect": "Kinetic Suppression",
+      "affixes": [
+        "Damage Over Time Multiplier",
+        "Vulnerable Damage Multiplier",
+        "Maximum Life",
+        "Dexterity",
+        "Unique Effect"
+      ],
+      "tempering": [
+        "Maximum Resolve Stacks"
+      ],
+      "gem": "Grand Topaz",
+      "verify": false
+    },
+    {
+      "slot": "Ring 1",
+      "item": "Ring of Writhing Moon",
+      "type": "unique",
+      "aspect": "",
+      "affixes": [
+        "Damage Over Time Multiplier",
+        "Vulnerable Damage Multiplier",
+        "Dexterity",
+        "Maximum Life",
+        "Unique Effect",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Damage Over Time"
+      ],
+      "gem": "Grand Amethyst",
+      "verify": false
+    },
+    {
+      "slot": "Ring 2",
+      "item": "Soulwatch Hoop",
+      "type": "legendary",
+      "aspect": "Pestilence",
+      "affixes": [
+        "Damage Over Time Multiplier",
+        "Vulnerable Damage Multiplier",
+        "Dexterity",
+        "Maximum Life",
+        "Poison Damage"
+      ],
+      "tempering": [
+        "Cooldown Reduction"
+      ],
+      "gem": "Grand Ruby",
+      "verify": false
+    },
+    {
+      "slot": "Weapon",
+      "item": "War Crest",
+      "type": "legendary",
+      "aspect": "Infestation",
+      "affixes": [
+        "Damage Over Time Multiplier",
+        "Dexterity",
+        "Maximum Life",
+        "Poison Damage Multiplier",
+        "Weapon Damage",
+        "All Damage Multiplier",
+        "Life On Hit",
+        "Gem Strength in this Item"
+      ],
+      "tempering": [
+        "Damage Over Time"
+      ],
+      "gem": "2× Grand Emerald",
+      "verify": false
+    },
+    {
+      "slot": "Seal",
+      "item": "Bitter Rise",
+      "type": "legendary",
+      "aspect": "",
+      "affixes": [
+        "Damage",
+        "Balazan's Bite: +30% Damage Over Time",
+        "+1 Charm Slot"
+      ],
+      "tempering": [],
+      "gem": "",
+      "verify": false
+    },
+    {
+      "slot": "Charms",
+      "item": "Balazan's Bite (5pc)",
+      "type": "set",
+      "aspect": "",
+      "note": "5-piece charm set equipped in your Legendary Horadric Seal: Phoba of Balazan's Bite, Fer of Balazan's Bite, Mlor of Balazan's Bite, Linta of Balazan's Bite, and Berú of Balazan's Bite. Each charm gives +All Stats and one elemental Resistance.",
+      "bonuses": [
+        "(2) Your Poisoning effects last 80% longer and Weaken enemies.",
+        "(3) Gain 30% Maximum Life. Dealing Poisoning damage has a 10% chance to Heal you for 5% of your Maximum Life.",
+        "(5) Every 6 seconds, a Non-Boss enemy who you Poisoned for more than their remaining Life is killed instantly and unleashes Scourge. Scourge increases your Poison damage by 250% for 10 seconds."
+      ],
+      "verify": false
+    },
+    {
+      "slot": "Unique Charm",
+      "item": "Protean Heart",
+      "type": "unique",
+      "aspect": "",
+      "note": "The Base Spirit of a Skill cast grants: Eagle: 5% Movement Speed Gorilla: 5% Damage Reduction Jaguar: 5% Attack Speed Centipede: 5%/10 Life per Second Casting a Skill of a different Base Spirit: Swaps to the new bonus Increases Core Stats by 100% for 7 seconds.",
+      "verify": false
+    }
+  ]
+}

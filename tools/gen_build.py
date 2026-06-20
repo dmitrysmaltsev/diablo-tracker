@@ -126,6 +126,8 @@ class Resolver:
         m = re.match(r"^to (.+) Skills$", t)
         if m:
             t = f"Ranks to {m.group(1)} Skills"
+        elif t.startswith("to "):                  # "to Counterattack" (a single
+            t = "Ranks " + t                       # skill) -> "Ranks to Counterattack"
         m = re.match(r"^(.+?) Maximum Stacks$", t)
         if m:
             t = f"Maximum {m.group(1)} Stacks"
@@ -178,14 +180,38 @@ class Resolver:
         return self.items.get(sid, {}).get("name", sid)
 
     # -- power / set-bonus prose (a different, richer cleaning than affix labels)
+    def _bracket_repl(self, values):
+        """Resolve a `[expr|fmt|]` value-formatter. Affix_Value_N tokens and plain
+        literals are kept (the literal/substitution passes handle them); an
+        attribute-name formula (e.g. 'Multiplicative_..._Percent*100', 'MaxStacks(id)')
+        carries no description, so evaluate it from the next explicit value — or drop
+        it rather than leak the raw formula when no value is available."""
+        it = iter(values or [])
+
+        def repl(m):
+            inner = m.group(1)
+            parts = inner.split("|")
+            first = parts[0]
+            fmt = parts[1] if len(parts) > 1 else ""
+            if "Affix_Value_" in first or not re.search(r"[A-Za-z]", first):
+                return first
+            mult = 100 if "*100" in first else 1
+            v = next(it, None)
+            if v is None:
+                return ""
+            num = v * mult
+            s = _trim(float(num)) if isinstance(num, float) else str(num)
+            return s + "%" if "%" in fmt else s
+
+        return repl
+
     def clean_power(self, text, values=None):
         if not text:
             return None
         t = self.ICON.sub("", text)
         t = self.TAG.sub("", text if False else t)
         t = self.UTAG.sub("", t)
-        # keep the first option of [a|b|c] formatters (usually the literal value)
-        t = re.sub(r"\[([^\]|]*)[^\]]*\]", r"\1", t)
+        t = re.sub(r"\[([^\]]*)\]", self._bracket_repl(values), t)
         t = t.replace("\r", " ").replace("\n", " ")
         t = re.sub(r"\\[a-zA-Z+]", "", t)   # stray escape artifacts like \+ \x
         t = t.replace("\\", "")
@@ -322,6 +348,9 @@ def build_seal_slot(res, item):
             res.affixes.get(key, {}).get("desc"), ex.get("values"))
         if lab:
             affixes.append(lab)
+    # flag for review if any line still carries an unresolved token/formula
+    verify = any(re.search(r"Affix_Value_|[A-Za-z]+_[A-Za-z_]+|\*100", a)
+                 for a in affixes)
     return {
         "slot": "Seal",
         "item": item.get("name") or res.item_name(gid),
@@ -330,7 +359,7 @@ def build_seal_slot(res, item):
         "affixes": affixes,
         "tempering": [],
         "gem": "",
-        "verify": False,
+        "verify": verify,
     }
 
 
