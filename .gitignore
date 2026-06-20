@@ -7,3 +7,7 @@ node_modules/
 .claude/
 .preview.png
 tools/.cache/
+
+# Python
+__pycache__/
+*.pyc

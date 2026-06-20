@@ -99,7 +99,9 @@ class Resolver:
             "Companion", "Wrath", "Macabre", "Brawling", "Conjuration",
             "Marksman", "Cutthroat", "Werewolf", "Werebear", "Earth", "Storm",
             "Physical", "Fire", "Cold", "Lightning", "Poison", "Shadow",
-            "Resolve", "Overpower", "Ferocity"]
+            "Resolve", "Overpower", "Ferocity",
+            # class resources (e.g. "{value1} Regeneration" -> "Faith Regeneration")
+            "Faith", "Fury", "Mana", "Spirit", "Energy", "Essence", "Vigor"]
 
     def tag_from_key(self, key):
         for t in self.TAGS:
@@ -239,7 +241,8 @@ def magic_to_type(m):
 
 def build_equipment_slot(res, item, slot_label):
     gid = item["id"]
-    typ = magic_to_type(res.magic_type(gid))
+    mtype = res.magic_type(gid)
+    typ = magic_to_type(mtype)
     # An imprinted legendary aspect defines the item — surface its name and mark
     # the slot "legendary" so the UI shows the aspect in place of the base name.
     aspect = ""
@@ -250,16 +253,22 @@ def build_equipment_slot(res, item, slot_label):
             break
     # `normal` keeps explicits in their planner order. Two kinds of "Unique Effect"
     # lines exist and maxroll renders them differently:
-    #   - an uber innate power (affixType 1) is pulled to the BOTTOM (helm, shield);
-    #   - an in-place item power (key == item id, affixType != 1) stays where it sits
-    #     in the planner order (e.g. the chest's effect is its 2nd affix).
+    #   - a Mythic/uber's innate power (affixType 1) is pulled to the BOTTOM (e.g.
+    #     the Heir of Perdition helm, magicType 4);
+    #   - a regular unique's power stays where it sits in the planner order — whether
+    #     it's an affixType-1 innate (e.g. the Ward of the White Dove shield, where
+    #     it's the 1st affix) or an in-place item power (key == item id, e.g. the
+    #     chest's effect is its 2nd affix).
     # The Transfiguration/implicit line (cat -1) is always last, and the masterwork
     # pick (upgradePriority 1) is moved to the front.
     normal, innate_fx, trailing, mw, verify = [], [], [], None, False
     for ex in item.get("explicits", []):
         key, atype, cat = res.affix_meta(ex["nid"])
-        if atype == 1:                             # uber innate power -> bottom
-            innate_fx.append("Unique Effect")
+        if atype == 1:                             # unique's innate power
+            if mtype == 4:                         # Mythic/uber -> bottom
+                innate_fx.append("Unique Effect")
+            else:                                  # regular unique -> planner order
+                normal.append("Unique Effect")
             continue
         if cat == -1:                              # Transfiguration / implicit -> last
             lab = res.affix_label(ex["nid"])
@@ -275,9 +284,10 @@ def build_equipment_slot(res, item, slot_label):
         if ex.get("upgradePriority") == 1:
             mw = lab
         normal.append(lab)
-    if mw and mw in normal:                        # masterwork pick goes first
-        normal.remove(mw)
-        normal.insert(0, mw)
+    if mw and mw in normal:                        # masterwork pick goes first,
+        normal.remove(mw)                          # but never above a leading
+        pos = 1 if normal[:1] == ["Unique Effect"] else 0   # unique effect
+        normal.insert(pos, mw)
     # order: explicits in planner order, then the innate power, then implicit damage
     affixes = normal + innate_fx + trailing
     tempering = [res.affix_label(t["nid"]) for t in item.get("tempered", [])]
@@ -298,6 +308,30 @@ def build_equipment_slot(res, item, slot_label):
     if runes:
         slot["runes"] = runes
     return slot
+
+
+def build_seal_slot(res, item):
+    """Render the Legendary Horadric Seal as its own slot. Its lines are described
+    inconsistently — some via attributes (affix_label), the +Charm Slot via prose
+    (clean_power) — so try the label first and fall back to the cleaned power."""
+    gid = item["id"]
+    affixes = []
+    for ex in item.get("explicits", []):
+        key = res.aff_by_nid.get(ex["nid"])
+        lab = res.affix_label(ex["nid"]) or res.clean_power(
+            res.affixes.get(key, {}).get("desc"), ex.get("values"))
+        if lab:
+            affixes.append(lab)
+    return {
+        "slot": "Seal",
+        "item": item.get("name") or res.item_name(gid),
+        "type": "legendary",
+        "aspect": "",
+        "affixes": affixes,
+        "tempering": [],
+        "gem": "",
+        "verify": False,
+    }
 
 
 def _join_gems(gems):
@@ -407,7 +441,7 @@ def generate(cfg, res, planner):
     prof = next(p for p in profiles if p["name"] == cfg["profile"])
     item_defs = planner["items"]
 
-    gear, rings, charms, weapons, seal_name = {}, [], [], [], None
+    gear, rings, charms, weapons, seal_item = {}, [], [], [], None
     for sidx, iid in sorted(prof["items"].items(), key=lambda kv: int(kv[0])):
         item = item_defs.get(str(iid))
         if not item:
@@ -422,7 +456,8 @@ def generate(cfg, res, planner):
         elif cat == "charm":
             charms.append(item)
         elif cat == "seal":
-            seal_name = res.item_name(item["id"])
+            seal_item = item
+    seal_name = res.item_name(seal_item["id"]) if seal_item else None
 
     slots = []
     # ordered equipment
@@ -437,7 +472,9 @@ def generate(cfg, res, planner):
     if "Off-Hand / Shield" in gear:
         slots.append(build_equipment_slot(res, gear["Off-Hand / Shield"],
                                           "Off-Hand / Shield"))
-    # talismans / charms
+    # the Horadric Seal that holds the charms, then the talismans / charms
+    if seal_item:
+        slots.append(build_seal_slot(res, seal_item))
     slots.extend(build_talisman_slots(res, charms, seal_name))
 
     return {

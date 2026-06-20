@@ -38,8 +38,8 @@
       "type": "unique",
       "aspect": "",
       "affixes": [
-        "Thorns",
         "Unique Effect",
+        "Thorns",
         "Strength",
         "Maximum Life",
         "Life Regeneration",
@@ -85,7 +85,7 @@
         "Thorns",
         "Strength",
         "Maximum Life",
-        "Regeneration",
+        "Faith Regeneration",
         "Armor",
         "Resistance to All Elements",
         "Life Regeneration",
@@ -103,7 +103,7 @@
       "type": "legendary",
       "aspect": "Dominance",
       "affixes": [
-        "Regeneration",
+        "Faith Regeneration",
         "Strength",
         "Maximum Life",
         "Life Regeneration",
@@ -206,17 +206,31 @@
       "type": "unique",
       "aspect": "",
       "affixes": [
+        "Unique Effect",
         "Damage Reduction",
         "Thorns",
         "Strength",
         "Critical Strike Chance",
-        "Unique Effect",
         "Physical Damage"
       ],
       "tempering": [
         "Critical Strike Chance"
       ],
       "gem": "Grand Ruby",
+      "verify": false
+    },
+    {
+      "slot": "Seal",
+      "item": "Vicious Work",
+      "type": "legendary",
+      "aspect": "",
+      "affixes": [
+        "+1 Charm Slot",
+        "Maximum Resolve Stacks",
+        "Damage"
+      ],
+      "tempering": [],
+      "gem": "",
       "verify": false
     },
     {
