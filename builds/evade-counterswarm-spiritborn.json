@@ -5,7 +5,7 @@
   "source": "https://maxroll.gg/d4/build-guides/evade-counterswarm-spiritborn-guide",
   "planner": "https://maxroll.gg/d4/planner/adb5f08s",
   "patch": "Season 13",
-  "updated": "2026-06-20",
+  "updated": "2026-06-21",
   "profile": "Endgame 3.0.3",
   "notes": "Auto-extracted from the maxroll planner (Endgame 3.0.3 profile). Uniques have fixed affixes; the first affix listed is the Greater Affix / masterwork priority. Rare slots show the affix priority to roll for.",
   "slots": [
@@ -112,8 +112,8 @@
     {
       "slot": "Amulet",
       "item": "Widow's Web",
-      "type": "legendary",
-      "aspect": "Kinetic Suppression",
+      "type": "unique",
+      "aspect": "",
       "affixes": [
         "Damage Over Time Multiplier",
         "Vulnerable Damage Multiplier",
@@ -174,10 +174,10 @@
         "Dexterity",
         "Maximum Life",
         "Poison Damage Multiplier",
+        "Gem Strength in this Item",
         "Weapon Damage",
         "All Damage Multiplier",
-        "Life On Hit",
-        "Gem Strength in this Item"
+        "Life On Hit"
       ],
       "tempering": [
         "Damage Over Time"

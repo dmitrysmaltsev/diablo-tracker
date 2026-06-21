@@ -271,12 +271,16 @@ def build_equipment_slot(res, item, slot_label):
     typ = magic_to_type(mtype)
     # An imprinted legendary aspect defines the item — surface its name and mark
     # the slot "legendary" so the UI shows the aspect in place of the base name.
+    # Only a rare/legendary base (magicType 1) can be imprinted; a unique/set item
+    # (e.g. the Widow's Web amulet, magicType 2) carries an aspect-shaped innate
+    # power entry that is NOT an imprint — its identity is its unique name.
     aspect = ""
-    for asp in item.get("aspects", []):
-        nm = res.aspect_name(asp.get("nid"))
-        if nm:
-            aspect, typ = nm, "legendary"
-            break
+    if mtype == 1:
+        for asp in item.get("aspects", []):
+            nm = res.aspect_name(asp.get("nid"))
+            if nm:
+                aspect, typ = nm, "legendary"
+                break
     # `normal` keeps explicits in their planner order. Two kinds of "Unique Effect"
     # lines exist and maxroll renders them differently:
     #   - a Mythic/uber's innate power (affixType 1) is pulled to the BOTTOM (e.g.
@@ -285,8 +289,11 @@ def build_equipment_slot(res, item, slot_label):
     #     it's an affixType-1 innate (e.g. the Ward of the White Dove shield, where
     #     it's the 1st affix) or an in-place item power (key == item id, e.g. the
     #     chest's effect is its 2nd affix).
-    # The Transfiguration/implicit line (cat -1) is always last, and the masterwork
-    # pick (upgradePriority 1) is moved to the front.
+    # The implicit damage-type % / skill-rank Transfiguration line (cat -1) is the
+    # item's implicit and maxroll lists it last. A weapon's "Gem Strength in this
+    # Item" (IncreasedGemEffect) is also cat -1 but maxroll shows it in its rolled
+    # planner position, so it stays inline. The masterwork pick (upgradePriority 1)
+    # is moved to the front.
     normal, innate_fx, trailing, mw, verify = [], [], [], None, False
     for ex in item.get("explicits", []):
         key, atype, cat = res.affix_meta(ex["nid"])
@@ -296,8 +303,8 @@ def build_equipment_slot(res, item, slot_label):
             else:                                  # regular unique -> planner order
                 normal.append("Unique Effect")
             continue
-        if cat == -1:                              # Transfiguration / implicit -> last
-            lab = res.affix_label(ex["nid"])
+        if cat == -1 and "IncreasedGemEffect" not in (key or ""):
+            lab = res.affix_label(ex["nid"])       # implicit damage/skill line -> last
             if lab:
                 trailing.append(lab)
             continue
@@ -314,7 +321,8 @@ def build_equipment_slot(res, item, slot_label):
         normal.remove(mw)                          # but never above a leading
         pos = 1 if normal[:1] == ["Unique Effect"] else 0   # unique effect
         normal.insert(pos, mw)
-    # order: explicits in planner order, then the innate power, then implicit damage
+    # order: explicits in planner order, then the Mythic innate power, then the
+    # implicit damage/skill line
     affixes = normal + innate_fx + trailing
     tempering = [res.affix_label(t["nid"]) for t in item.get("tempered", [])]
     tempering = [t for t in tempering if t]
